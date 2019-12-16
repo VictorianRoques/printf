@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:39:28 by viroques          #+#    #+#             */
-/*   Updated: 2019/12/14 18:43:05 by viroques         ###   ########.fr       */
+/*   Updated: 2019/12/16 19:56:56 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 char		*ft_parse_attributs(char *str, t_env *env)
 {
-	while (*str == '0' || *str == '-' || *str == '*')
+	while (*str == '0' || *str == '-')
 	{
-		if (*str == '*')
-			env->attributs.star = true;
 		if (*str == '0')
 			env->attributs.zero = true;
 		if (*str == '-')
@@ -27,13 +25,18 @@ char		*ft_parse_attributs(char *str, t_env *env)
 	return (str);
 }
 
-char	*ft_parse_width(char *str, t_env *env)
+char	*ft_parse_width(char *str, t_env *env, va_list args)
 {
 	char tmp[11];
 	int	i;
 
 	i = 0;
-	if (*str >= '1' && *str <= '9')
+	if (*str == '*')
+	{
+		env->width.padding = va_arg(args, int);
+		str++;
+	}
+	else if (*str >= '1' && *str <= '9')
 	{
 		while (ft_isdigit(*str))
 		{
@@ -48,6 +51,11 @@ char	*ft_parse_width(char *str, t_env *env)
 	{
 		i = 0;
 		str++;
+		if (*str == '*')
+		{
+			env->width.precision = va_arg(args, int);
+			return (str + 1);
+		}
 		while (ft_isdigit(*str))
 		{
 			tmp[i] = *str;

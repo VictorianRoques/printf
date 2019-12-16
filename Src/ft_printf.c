@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 19:53:22 by viroques          #+#    #+#             */
-/*   Updated: 2019/12/16 18:59:52 by viroques         ###   ########.fr       */
+/*   Updated: 2019/12/16 19:52:27 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void			ft_init_struct(t_env *env)
 {
 	env->attributs.zero = false;
 	env->attributs.minus = false;
-	env->attributs.star = false;
 	env->width.padding = 0;
 	env->width.precision = -1;
 	env->length.l = false;
@@ -30,7 +29,9 @@ void			ft_init_struct(t_env *env)
 int				ft_read_conv(va_list args, t_env *env)
 {
 	if (env->conv.conv == 's')
+	{
 		ft_s_conv(env, va_arg(args, char*));
+	}
 	return (0);
 }
 
@@ -74,7 +75,7 @@ int				ft_printf(char *format, ...)
 		{
 			format++;
 			format = ft_parse_attributs(format, &env);
-			format = ft_parse_width(format, &env);
+			format = ft_parse_width(format, &env, args);
 			format = ft_parse_length(format, &env);
 			format = ft_parse_conv(format, &env);
 			ft_read_conv(args, &env);

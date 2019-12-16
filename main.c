@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 19:56:23 by viroques          #+#    #+#             */
-/*   Updated: 2019/12/16 19:00:11 by viroques         ###   ########.fr       */
+/*   Updated: 2019/12/16 19:51:01 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 int		main()
 {
-	// printf("%20s", "bonjour");
-	ft_printf("%20s", "bonjour");
+	// printf("%*s", 20, 2, "bonjour");
+	ft_printf("%*.*s", 20, 2, "bonjour");
 }
