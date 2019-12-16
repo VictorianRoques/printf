@@ -6,16 +6,14 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 19:56:23 by viroques          #+#    #+#             */
-/*   Updated: 2019/12/14 19:27:25 by viroques         ###   ########.fr       */
+/*   Updated: 2019/12/16 17:13:00 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Includes/ft_printf.h"
 #include <stdio.h>
 
 int		main()
 {
-	// char str[] = "012345678901%2345678901234567890123456789";
-	// ft_printf(str, 42, 58, 64);
-	// ft_printf("%050s", 124);
-	printf("%c", 1000);
+	printf("%30s", "bonjour");
 }

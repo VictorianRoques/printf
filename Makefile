@@ -38,4 +38,7 @@ fclean: clean
 
 re: fclean $(NAME) all
 
+main:
+	CC -ILibft main.c libftprintf.a
+
 .PHONY: clean fclean re debug make

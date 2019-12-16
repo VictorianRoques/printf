@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 20:11:57 by viroques          #+#    #+#             */
-/*   Updated: 2019/12/14 18:41:31 by viroques         ###   ########.fr       */
+/*   Updated: 2019/12/14 19:55:43 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <libft.h>
-# define BUFFER_SIZE 10
+# define BUFFER_SIZE 2024
 
 typedef struct	s_attributs
 {
