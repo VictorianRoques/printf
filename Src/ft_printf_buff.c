@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:38:11 by viroques          #+#    #+#             */
-/*   Updated: 2019/12/16 15:56:17 by viroques         ###   ########.fr       */
+/*   Updated: 2019/12/16 18:51:29 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,25 @@ int		ft_fill_buff_c(t_env *env, char c)
 	return (0);
 }
 
-void		ft_fill_buff_s(t_env *env, char *str)
+int			ft_fill_padding(t_env *env, int len)
 {
 	int i;
 
 	i = 0;
-	while (str[i])
+	while (i < len)
+	{
+		ft_fill_buff_c(env, ' ');
+		i++;
+	}
+	return (0);
+}
+
+void		ft_fill_buff_s(t_env *env, char *str, int len)
+{
+	int i;
+
+	i = 0;
+	while (str[i] && i < len)
 	{
 		if (env->buff_index == BUFFER_SIZE)
 			ft_write_full_buff(env);

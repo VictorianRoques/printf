@@ -30,11 +30,11 @@ debug: all
 
 clean:
 	$(RM) $(OBJ_DIR)
-	@$(MAKE) -C libft clean
+	@$(MAKE) -j -C libft clean
 
 fclean: clean
 	$(RM) $(NAME)
-	@$(MAKE) -C libft fclean
+	@$(MAKE) -j -C libft fclean
 
 re: fclean $(NAME) all
 
