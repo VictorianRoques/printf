@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 20:11:57 by viroques          #+#    #+#             */
-/*   Updated: 2019/12/16 19:52:15 by viroques         ###   ########.fr       */
+/*   Updated: 2019/12/17 12:50:27 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ char	*ft_parse_length(char *str, t_env *env);
 char		*ft_parse_conv(char *str, t_env *env);
 int			ft_fill_padding(t_env *env, int len);
 char	*ft_s_conv(t_env *env, char *str);
+int		ft_c_conv(t_env *env, int c);
 
 #endif

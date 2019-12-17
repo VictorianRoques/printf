@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 19:53:22 by viroques          #+#    #+#             */
-/*   Updated: 2019/12/16 19:52:27 by viroques         ###   ########.fr       */
+/*   Updated: 2019/12/17 12:48:21 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,36 +29,10 @@ void			ft_init_struct(t_env *env)
 int				ft_read_conv(va_list args, t_env *env)
 {
 	if (env->conv.conv == 's')
-	{
 		ft_s_conv(env, va_arg(args, char*));
-	}
+	else if (env->conv.conv == 'c')
+		ft_c_conv(env, va_arg(args, int));
 	return (0);
-}
-
-char	*ft_s_conv(t_env *env, char *str)
-{
-	int i;
-	int len;
-
-	i = 0;
-	if (env->width.precision < (int)ft_strlen(str) &&
-			env->width.precision != -1)
-		len = env->width.precision;
-	else
-		len = ft_strlen(str);
-	if (env->attributs.minus == true)
-	{
-		ft_fill_buff_s(env, str, len);
-		if (env->width.padding > len)
-			ft_fill_padding(env, env->width.padding - len);
-	}
-	else
-	{
-		if (env->width.padding > len)
-			ft_fill_padding(env, env->width.padding - len);
-		ft_fill_buff_s(env, str, len);
-	}
-	return (str);
 }
 
 int				ft_printf(char *format, ...)

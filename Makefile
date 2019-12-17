@@ -3,7 +3,7 @@ CFLAGS = -Wall -Werror -Wextra
 RM = rm -rf
 
 NAME = libftprintf.a
-SRC = ft_printf.c ft_printf_buff.c ft_printf_parse.c
+SRC = ft_printf.c ft_printf_buff.c ft_printf_parse.c ft_printf_conv1.c
 
 SRC_DIR = Src
 LIB_DIRS = Libft
