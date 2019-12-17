@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:39:28 by viroques          #+#    #+#             */
-/*   Updated: 2019/12/16 19:56:56 by viroques         ###   ########.fr       */
+/*   Updated: 2019/12/17 19:25:47 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ char	*ft_parse_width(char *str, t_env *env, va_list args)
 	if (*str == '*')
 	{
 		env->width.padding = va_arg(args, int);
+		if (env->width.padding < 0)
+		{
+			env->width.padding = env->width.padding * -1;
+			env->attributs.minus = true;
+		}
 		str++;
 	}
 	else if (*str >= '1' && *str <= '9')

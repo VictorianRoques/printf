@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 20:11:57 by viroques          #+#    #+#             */
-/*   Updated: 2019/12/17 12:50:27 by viroques         ###   ########.fr       */
+/*   Updated: 2019/12/17 22:37:54 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stdbool.h>
 # include <unistd.h>
 # include <stdarg.h>
-# include <libft.h>
+# include "libft.h"
 # define BUFFER_SIZE 2048
 
 typedef struct	s_attributs
@@ -65,5 +65,6 @@ char		*ft_parse_conv(char *str, t_env *env);
 int			ft_fill_padding(t_env *env, int len);
 char	*ft_s_conv(t_env *env, char *str);
 int		ft_c_conv(t_env *env, int c);
+int		ft_x_conv(t_env *env, unsigned int);
 
 #endif
