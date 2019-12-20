@@ -5,7 +5,7 @@ RM = rm -rf
 NAME = libftprintf.a
 SRC = ft_printf.c ft_printf_buff.c ft_printf_parse.c ft_printf_conv1.c
 
-SRC_DIR = Src
+SRC_DIR = srcs
 LIB_DIRS = Libft
 INCLUDE_DIRS = $(LIB_DIRS) Includes
 

@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 19:53:22 by viroques          #+#    #+#             */
-/*   Updated: 2019/12/17 23:35:25 by viroques         ###   ########.fr       */
+/*   Updated: 2019/12/20 18:10:13 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ int				ft_read_conv(va_list args, t_env *env)
 		ft_x_conv(env, va_arg(args, unsigned int), 1);
 	if (env->conv.conv == 'p')
 		ft_p_conv(env, va_arg(args, void*));
+	if (env->conv.conv == 'u')
+		ft_u_conv(env, va_arg(args, unsigned int));
+	if (env->conv.conv == 'i' || env->conv.conv == 'd')
+		ft_i_conv(env, va_arg(args, int));
 	return (0);
 }
 

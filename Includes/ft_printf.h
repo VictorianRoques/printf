@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 20:11:57 by viroques          #+#    #+#             */
-/*   Updated: 2019/12/17 23:35:43 by viroques         ###   ########.fr       */
+/*   Updated: 2019/12/20 18:14:28 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stdbool.h>
 # include <unistd.h>
 # include <stdarg.h>
-# include "libft.h"
+# include <libft.h>
 # define BUFFER_SIZE 2048
 
 typedef struct	s_attributs
@@ -62,11 +62,13 @@ char		*ft_parse_attributs(char *str, t_env *env);
 char	*ft_parse_width(char *str, t_env *env, va_list args);
 char	*ft_parse_length(char *str, t_env *env);
 char		*ft_parse_conv(char *str, t_env *env);
-int			ft_fill_padding(t_env *env, int len);
+int			ft_fill_padding(t_env *env, int len, char c);
 char	*ft_s_conv(t_env *env, char *str);
 int		ft_c_conv(t_env *env, int c);
 int		ft_x_conv(t_env *env, unsigned int nb, int x);
 int		ft_p_conv(t_env *env, void *p);
 int		ft_p_conv(t_env *env, void *p);
+int		ft_u_conv(t_env *env, unsigned int n);
+int		ft_i_conv(t_env *env, int n);
 
 #endif

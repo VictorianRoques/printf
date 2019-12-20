@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:38:11 by viroques          #+#    #+#             */
-/*   Updated: 2019/12/16 18:51:29 by viroques         ###   ########.fr       */
+/*   Updated: 2019/12/20 18:14:09 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ int		ft_fill_buff_c(t_env *env, char c)
 	return (0);
 }
 
-int			ft_fill_padding(t_env *env, int len)
+int			ft_fill_padding(t_env *env, int len, char c)
 {
 	int i;
 
 	i = 0;
 	while (i < len)
 	{
-		ft_fill_buff_c(env, ' ');
+		ft_fill_buff_c(env, c);
 		i++;
 	}
 	return (0);
