@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 12:33:58 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/14 01:33:16 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/17 20:59:19 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ int		ft_x_conv(t_env *env, unsigned int nb, int x)
 		str = ft_itoa_base(nb, "0123456789ABCDEF");
 	len = ft_strlen(str);
 	ft_handle_buff(env, str, len);
+	free(str);
+	// Penser a free une fois que c est dans le buffer
 	return (0);
 }
 
