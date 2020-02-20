@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 21:09:00 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/13 22:41:19 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/20 18:21:54 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,7 @@ static void		ft_fill_string(unsigned int n, int index, char *str, char *base)
 	str[index] = base[n % base_len];
 }
 
-static void		ft_absolute_value(int n, unsigned int *nbr, int *size)
-{
-	if (n < 0)
-	{
-		*nbr = -n;
-		*size += 1;
-	}
-	else
-		*nbr = n;
-}
-
-char			*ft_itoa_base(int n, char *base)
+char			*ft_itoa_base_unsigned(unsigned int n, char *base)
 {
 	char			*str;
 	unsigned int	nbr;
@@ -42,7 +31,7 @@ char			*ft_itoa_base(int n, char *base)
 
 	len_base = (unsigned int)ft_strlen(base);
 	size = 1;
-	ft_absolute_value(n, &nbr, &size);
+	nbr = n;
 	while (nbr >= len_base)
 	{
 		nbr /= len_base;

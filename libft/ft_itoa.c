@@ -6,24 +6,24 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 21:09:00 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/20 17:14:01 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/20 18:06:19 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_fill_string(unsigned int n, int index, char *str)
+void	ft_fill_string(long n, int index, char *str)
 {
 	if (n >= 10)
 		ft_fill_string(n / 10, index - 1, str);
 	str[index] = n % 10 + '0';
 }
 
-char	*ft_itoa(unsigned int n)
+char	*ft_itoa(long n)
 {
 	char			*str;
-	unsigned int	nbr;
-	unsigned int	size;
+	long			nbr;
+	int				size;
 
 	size = 1;
 	if (n < 0)

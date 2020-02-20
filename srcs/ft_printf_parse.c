@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:39:28 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/20 15:35:37 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/20 22:24:01 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ char		*ft_parse_attributs(char *str, t_env *env)
 	return (str);
 }
 
-char	*ft_parse_width(char *str, t_env *env, va_list args)
+char		*ft_parse_width(char *str, t_env *env, va_list args)
 {
-	char tmp[11];
-	int	i;
+	char	tmp[11];
+	int		i;
 
 	i = 0;
 	if (*str == '*')
@@ -44,14 +44,19 @@ char	*ft_parse_width(char *str, t_env *env, va_list args)
 	else if (*str >= '1' && *str <= '9')
 	{
 		while (ft_isdigit(*str))
-		{
-			tmp[i] = *str;
-			i++;
-			str++;
-		}
+			tmp[i++] = *str++;
 		tmp[i] = '\0';
 		env->width.padding = ft_atoi(tmp);
 	}
+	return (ft_parse_width_2(str, env, args));
+}
+
+char		*ft_parse_width_2(char *str, t_env *env, va_list args)
+{
+	char	tmp[11];
+	int		i;
+
+	i = 0;
 	if (*str == '.')
 	{
 		i = 0;
@@ -73,7 +78,7 @@ char	*ft_parse_width(char *str, t_env *env, va_list args)
 	return (str);
 }
 
-char	*ft_parse_length(char *str, t_env *env)
+char		*ft_parse_length(char *str, t_env *env)
 {
 	if (*str == 'h')
 	{

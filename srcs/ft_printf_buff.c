@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:38:11 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/20 16:01:30 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/20 22:22:28 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			ft_write_full_buff(t_env *env)
 	return (1);
 }
 
-int		ft_fill_buff_c(t_env *env, char c)
+int			ft_fill_buff_c(t_env *env, char c)
 {
 	if (ft_write_full_buff(env) == -1)
 		return (-1);
