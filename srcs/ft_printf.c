@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 19:53:22 by viroques          #+#    #+#             */
-/*   Updated: 2019/12/20 18:10:13 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/20 17:10:37 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int				ft_read_conv(va_list args, t_env *env)
 		ft_u_conv(env, va_arg(args, unsigned int));
 	if (env->conv.conv == 'i' || env->conv.conv == 'd')
 		ft_i_conv(env, va_arg(args, int));
+	if (env->conv.conv == '%')
+		ft_percent_conv(env);
 	return (0);
 }
 
@@ -52,6 +54,7 @@ int				ft_printf(char *format, ...)
 
 	env.buff_index = 0;
 	va_start(args, format);
+	env.compt = 0;
 	while (*format)
 	{
 		ft_init_struct(&env);
@@ -70,5 +73,5 @@ int				ft_printf(char *format, ...)
 	}
 	va_end(args);
 	write(1, env.buffer, env.buff_index);
-	return (1);
+	return (env.compt);
 }

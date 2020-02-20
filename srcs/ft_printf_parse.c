@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:39:28 by viroques          #+#    #+#             */
-/*   Updated: 2019/12/17 19:25:47 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/20 15:35:37 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ char	*ft_parse_length(char *str, t_env *env)
 
 char		*ft_parse_conv(char *str, t_env *env)
 {
-	static char *tmp = "cspdiuxX%";
+	static char *tmp = "%cspdiuxX";
 
 	if (ft_strchr(tmp, *str))
 		env->conv.conv = *str;

@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:38:11 by viroques          #+#    #+#             */
-/*   Updated: 2019/12/20 18:14:09 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/20 16:01:30 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int		ft_fill_buff_c(t_env *env, char c)
 		return (-1);
 	env->buffer[env->buff_index] = c;
 	env->buff_index++;
+	env->compt++;
 	return (0);
 }
 
@@ -57,5 +58,6 @@ void		ft_fill_buff_s(t_env *env, char *str, int len)
 		env->buffer[env->buff_index] = str[i];
 		i++;
 		env->buff_index++;
+		env->compt++;
 	}
 }

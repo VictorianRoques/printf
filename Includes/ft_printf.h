@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 20:11:57 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/13 22:27:46 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/20 16:00:47 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_env
 	t_width width;
 	t_length length;
 	t_conv conv;
+	int		compt;
 }				t_env;
 
 int		ft_printf(char *format, ...);
@@ -70,5 +71,6 @@ int		ft_p_conv(t_env *env, void *p);
 int		ft_p_conv(t_env *env, void *p);
 int		ft_u_conv(t_env *env, unsigned int n);
 int		ft_i_conv(t_env *env, int n);
+int		ft_percent_conv(t_env *env);
 
 #endif
