@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 12:33:58 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/25 02:36:03 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/25 19:57:24 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int		ft_s_conv(t_env *env, char *str)
 	}
 	else
 	{
-		ft_fill_padding(env, env->width.padding - len, ' ');
 		ft_fill_buff_s(env, str, len);
+		ft_fill_padding(env, env->width.padding - len, ' ');
 	}
 	return (0);
 }
@@ -64,13 +64,13 @@ int		ft_percent_conv(t_env *env)
 		if (env->attributs.zero == true)
 			ft_fill_padding(env, env->width.padding - 1, '0');
 		else
-			ft_fill_padding(env, env->width.padding -1, ' ');
+			ft_fill_padding(env, env->width.padding - 1, ' ');
 		ft_fill_buff_c(env, (unsigned char)c);
 	}
 	else
 	{
 		ft_fill_buff_c(env, (unsigned char)c);
-		ft_fill_padding(env, env->width.padding -1, ' ');
+		ft_fill_padding(env, env->width.padding - 1, ' ');
 	}
 	return (0);
 }

@@ -6,12 +6,11 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 21:56:21 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/25 02:36:05 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/25 19:48:58 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 void		ft_handle_buff_padding(t_env *env, int len)
 {
@@ -67,10 +66,10 @@ void		ft_handle_int(t_env *env, char *str, int len, int negative)
 {
 	if (env->attributs.minus == false)
 	{
-		if (negative == 1 && env->width.precision < 0)
+		if (negative == 1 && env->width.precision < 0 && env->attributs.zero == true)
 			ft_fill_buff_c(env, '-');
 		ft_handle_buff_padding_int(env, len, negative);
-		if (negative == 1 && env->width.precision >= 0)
+		if ((negative == 1 && env->width.precision >= 0) || (negative == 1 && env->attributs.zero == false))
 			ft_fill_buff_c(env, '-');
 		ft_fill_padding(env, env->width.precision - len, '0');
 		if (!(env->width.precision == 0 && str[0] == '0'))
