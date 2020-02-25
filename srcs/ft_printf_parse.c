@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:39:28 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/20 22:24:01 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/25 02:36:06 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,33 +74,6 @@ char		*ft_parse_width_2(char *str, t_env *env, va_list args)
 		}
 		tmp[i] = '\0';
 		env->width.precision = ft_atoi(tmp);
-	}
-	return (str);
-}
-
-char		*ft_parse_length(char *str, t_env *env)
-{
-	if (*str == 'h')
-	{
-		if (*str + 1 == 'h')
-		{
-			env->length.hh = true;
-			str++;
-		}
-		else
-			env->length.h = true;
-		str++;
-	}
-	else if (*str == 'l')
-	{
-		if (*str + 1 == 'l')
-		{
-			env->length.ll = true;
-			str++;
-		}
-		else
-			env->length.l = true;
-		str++;
 	}
 	return (str);
 }

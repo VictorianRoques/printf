@@ -6,50 +6,25 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 21:54:43 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/20 22:17:42 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/25 02:36:02 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_x_conv(t_env *env, unsigned int nb, int x)
+int		ft_x_conv(t_env *env, unsigned int nb)
 {
 	char	*str;
 	int		len;
 
-	if (x == 0)
+	if (env->conv.conv == 'x')
 		str = ft_itoa_base_unsigned(nb, "0123456789abcdef");
 	else
 		str = ft_itoa_base_unsigned(nb, "0123456789ABCDEF");
+	if (!str)
+		return (-1);
 	len = ft_strlen(str);
 	ft_handle_buff(env, str, len);
-	free(str);
-	return (0);
-}
-
-int		ft_p_conv(t_env *env, void *p)
-{
-	char		*str;
-	int			len;
-
-	str = ft_itoa_base_unsigned((long)p, "0123456789abcdef");
-	len = ft_strlen(str) + 2;
-	if (env->attributs.minus == true)
-	{
-		if (env->conv.conv != 's')
-			ft_fill_padding(env, env->width.precision - len, '0');
-		ft_fill_buff_s(env, "0x", 2);
-		ft_fill_buff_s(env, str, len);
-		ft_handle_buff_padding(env, len);
-	}
-	else
-	{
-		ft_handle_buff_padding(env, len);
-		if (env->conv.conv != 's')
-			ft_fill_padding(env, env->width.precision - len, '0');
-		ft_fill_buff_s(env, "0x", 2);
-		ft_fill_buff_s(env, str, len);
-	}
 	free(str);
 	return (0);
 }
@@ -60,6 +35,8 @@ int		ft_u_conv(t_env *env, unsigned int n)
 	int		len;
 
 	str = ft_itoa(n);
+	if (!str)
+		return (-1);
 	len = ft_strlen(str);
 	ft_handle_buff(env, str, len);
 	free(str);
@@ -68,29 +45,49 @@ int		ft_u_conv(t_env *env, unsigned int n)
 
 int		ft_i_conv(t_env *env, int n)
 {
-	char	*str;
-	int		len;
-	int		negative;
-
+	char			*str;
+	int				len;
+	int				negative;
+	unsigned int	nbr;
+	
 	negative = 0;
 	if (n < 0)
 	{
-		n = -n;
+		nbr = -n;
 		negative = 1;
 	}
-	str = ft_itoa((long)n);
+	else
+		nbr = n;
+	if(!(str = ft_itoa((long)nbr)))
+		return (-1);
 	len = ft_strlen(str);
-	ft_handle_int(env, negative, len, str);
+	ft_handle_int(env, str, len, negative);
 	free(str);
 	return (0);
 }
 
-int		ft_percent_conv(t_env *env)
+int		ft_p_conv(t_env *env, void *p)
 {
-	char str[2];
+	char		*str;
+	int			len;
 
-	str[0] = '%';
-	str[1] = '\0';
-	ft_handle_buff(env, str, 1);
+	if(!(str = ft_itoa_base_unsigned((long)p, "0123456789abcdef")))
+		return (-1);
+	len = ft_strlen(str) + 2;
+	if (env->attributs.minus == false)
+	{
+		ft_handle_buff_padding(env, len);
+		ft_fill_padding(env, env->width.precision - len, '0');
+		ft_fill_buff_s(env, "0x", 2);
+		ft_fill_buff_s(env, str, len);
+	}
+	else
+	{
+		ft_fill_padding(env, env->width.precision - len, '0');
+		ft_fill_buff_s(env, "0x", 2);
+		ft_fill_buff_s(env, str, len);
+		ft_handle_buff_padding(env, len);
+	}
+	free(str);
 	return (0);
 }
