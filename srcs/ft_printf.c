@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 19:53:22 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/25 02:36:08 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/25 20:14:43 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int				ft_printf(char *format, ...)
 			format = ft_parse_attributs(format, &env);
 			format = ft_parse_width(format, &env, args);
 			format = ft_parse_conv(format, &env);
-			if((ft_read_conv(args, &env) == -1))
+			if ((ft_read_conv(args, &env) == -1))
 				return (-1);
 		}
 		else

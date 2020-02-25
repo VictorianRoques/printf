@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 21:54:43 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/25 18:31:59 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/25 20:09:47 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ int		ft_x_conv(t_env *env, unsigned int nb)
 		str = ft_itoa_base_unsigned(nb, "0123456789ABCDEF");
 	if (!str)
 		return (-1);
-	len = ft_strlen(str);
+	if (env->width.precision == 0 && str[0] == '0')
+		len = 0;
+	else
+		len = ft_strlen(str);
 	ft_handle_buff(env, str, len);
 	free(str);
 	return (0);
@@ -37,7 +40,10 @@ int		ft_u_conv(t_env *env, unsigned int n)
 	str = ft_itoa(n);
 	if (!str)
 		return (-1);
-	len = ft_strlen(str);
+	if (env->width.precision == 0 && str[0] == '0')
+		len = 0;
+	else
+		len = ft_strlen(str);
 	ft_handle_buff(env, str, len);
 	free(str);
 	return (0);
@@ -60,7 +66,10 @@ int		ft_i_conv(t_env *env, int n)
 		nbr = n;
 	if (!(str = ft_itoa((long)nbr)))
 		return (-1);
-	len = ft_strlen(str);
+	if (env->width.precision == 0 && str[0] == '0')
+		len = 0;
+	else
+		len = ft_strlen(str);
 	ft_handle_int(env, str, len, negative);
 	free(str);
 	return (0);
