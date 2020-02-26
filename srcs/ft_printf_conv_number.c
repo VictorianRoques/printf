@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 21:54:43 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/26 22:53:32 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/26 22:55:10 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,14 +86,12 @@ int		ft_p_conv(t_env *env, uintptr_t *p)
 	if (env->attributs.minus == false)
 	{
 		ft_handle_buff_padding(env, len);
-		ft_fill_padding(env, env->width.precision - len, '0');
 		ft_fill_buff_s(env, "0x", 2);
 		if (p)
 			ft_fill_buff_s(env, str, len);
 	}
 	else
 	{
-		ft_fill_padding(env, env->width.precision - len, '0');
 		ft_fill_buff_s(env, "0x", 2);
 		if (p)
 			ft_fill_buff_s(env, str, len);
