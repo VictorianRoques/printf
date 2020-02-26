@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 21:54:43 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/25 20:09:47 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/26 22:53:32 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,12 @@ int		ft_i_conv(t_env *env, int n)
 	return (0);
 }
 
-int		ft_p_conv(t_env *env, void *p)
+int		ft_p_conv(t_env *env, uintptr_t *p)
 {
 	char		*str;
 	int			len;
 
-	if (!(str = ft_itoa_base_unsigned((long)p, "0123456789abcdef")))
+	if (!(str = ft_itoa_base_addr((uintptr_t)p, "0123456789abcdef")))
 		return (-1);
 	len = ft_strlen(str) + 2;
 	if (env->attributs.minus == false)
@@ -88,13 +88,15 @@ int		ft_p_conv(t_env *env, void *p)
 		ft_handle_buff_padding(env, len);
 		ft_fill_padding(env, env->width.precision - len, '0');
 		ft_fill_buff_s(env, "0x", 2);
-		ft_fill_buff_s(env, str, len);
+		if (p)
+			ft_fill_buff_s(env, str, len);
 	}
 	else
 	{
 		ft_fill_padding(env, env->width.precision - len, '0');
 		ft_fill_buff_s(env, "0x", 2);
-		ft_fill_buff_s(env, str, len);
+		if (p)
+			ft_fill_buff_s(env, str, len);
 		ft_handle_buff_padding(env, len);
 	}
 	free(str);

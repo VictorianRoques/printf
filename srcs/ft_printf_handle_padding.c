@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 21:56:21 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/25 20:14:30 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/26 19:52:07 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		ft_handle_buff_padding(t_env *env, int len)
 {
-	if (env->width.precision > len && env->conv.conv != 's')
+	if (env->width.precision > len)
 		len = env->width.precision;
 	if (env->attributs.zero == true)
 	{
@@ -82,4 +82,17 @@ void		ft_handle_int(t_env *env, char *str, int len, int negative)
 		ft_fill_buff_s(env, str, len);
 		ft_handle_buff_padding_int(env, len, negative);
 	}
+}
+
+void		ft_handle_buff_padding_s(t_env *env, int len)
+{
+	if (env->attributs.zero == true)
+	{
+		if (env->attributs.minus == true)
+			ft_fill_padding(env, env->width.padding - len, ' ');
+		else
+			ft_fill_padding(env, env->width.padding - len, '0');
+	}
+	else
+		ft_fill_padding(env, env->width.padding - len, ' ');
 }

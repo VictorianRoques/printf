@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 12:33:58 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/25 19:57:24 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/26 19:50:55 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ int		ft_s_conv(t_env *env, char *str)
 		len = ft_strlen(str);
 	if (env->attributs.minus == false)
 	{
-		ft_fill_padding(env, env->width.padding - len, ' ');
+		ft_handle_buff_padding_s(env, len);
 		ft_fill_buff_s(env, str, len);
 	}
 	else
 	{
 		ft_fill_buff_s(env, str, len);
-		ft_fill_padding(env, env->width.padding - len, ' ');
+		ft_handle_buff_padding_s(env, len);
 	}
 	return (0);
 }
@@ -43,13 +43,13 @@ int		ft_c_conv(t_env *env, int c)
 {
 	if (env->attributs.minus == false)
 	{
-		ft_fill_padding(env, env->width.padding - 1, ' ');
+		ft_handle_buff_padding_s(env, 1);
 		ft_fill_buff_c(env, (unsigned char)c);
 	}
 	else
 	{
 		ft_fill_buff_c(env, (unsigned char)c);
-		ft_fill_padding(env, env->width.padding - 1, ' ');
+		ft_handle_buff_padding_s(env, 1);
 	}
 	return (0);
 }

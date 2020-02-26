@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 12:55:35 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/20 18:22:32 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/26 22:04:19 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char c);
 char				*ft_itoa(long n);
+char				*ft_itoa_base_addr(uintptr_t n, char *base);
 char				*ft_itoa_base_unsigned(unsigned int n, char *base);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_putstr_fd(char *s, int fd);
