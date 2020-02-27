@@ -6,7 +6,7 @@
 /*   By: viroques <viroques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 21:54:43 by viroques          #+#    #+#             */
-/*   Updated: 2020/02/26 22:55:10 by viroques         ###   ########.fr       */
+/*   Updated: 2020/02/27 20:56:05 by viroques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,17 +83,19 @@ int		ft_p_conv(t_env *env, uintptr_t *p)
 	if (!(str = ft_itoa_base_addr((uintptr_t)p, "0123456789abcdef")))
 		return (-1);
 	len = ft_strlen(str) + 2;
+	if (!p && env->width.precision == 0)
+		len -= 1;
 	if (env->attributs.minus == false)
 	{
 		ft_handle_buff_padding(env, len);
 		ft_fill_buff_s(env, "0x", 2);
-		if (p)
+		if (!(!p && env->width.precision == 0))
 			ft_fill_buff_s(env, str, len);
 	}
 	else
 	{
 		ft_fill_buff_s(env, "0x", 2);
-		if (p)
+		if (!(!p && env->width.precision == 0))
 			ft_fill_buff_s(env, str, len);
 		ft_handle_buff_padding(env, len);
 	}
